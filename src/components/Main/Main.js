@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Article,
   Container,
@@ -6,48 +6,69 @@ import {
   ShareBox,
   SharedActor,
   SharedImg,
+  SocialActions,
+  SocialCounts,
 } from "./style";
 import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
 import OndemandVideoIcon from "@mui/icons-material/OndemandVideo";
 import EventIcon from "@mui/icons-material/Event";
 import ArticleIcon from "@mui/icons-material/Article";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import ShareIcon from "@mui/icons-material/Share";
+import SendIcon from "@mui/icons-material/Send";
+import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
+import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
+import SocialAction from "./SocialAction";
+import ActionComponent from "./ActionComponent";
+import SocialCount from "./SocialCount";
+import PostModel from "./PostModel/PostModel";
 
 function Main() {
+  const [showModal, setShowModal] = useState("close");
+
+  const handleClick = (e) => {
+    e.preventDefault();
+
+    switch (showModal) {
+      case "open":
+        setShowModal("close");
+        break;
+      case "close":
+        setShowModal("open");
+        break;
+      default:
+        setShowModal("close");
+        break;
+    }
+  };
   return (
     <Container>
       <ShareBox>
         <div>
           <img src="/images/user.svg" alt="" />
-          <button>Começar publicação</button>
+          <button onClick={handleClick}>Começar publicação</button>
         </div>
 
         <div>
-          <button>
-            <AddPhotoAlternateIcon
-              style={{ color: "#0a66c2", margin: "0 4px 0 -2" }}
-            />
-            <span>Foto</span>
-          </button>
-
-          <button>
-            <OndemandVideoIcon
-              style={{ color: "#5F9B41", margin: "0 5px 0 -2" }}
-            />
-            <span>Video</span>
-          </button>
-
-          <button>
-            <EventIcon style={{ color: "#CA8D32", margin: "0 4px 0 -2" }} />
-            <span>Evento</span>
-          </button>
-
-          <button>
-            <ArticleIcon style={{ color: "#E16745", margin: "0 4px 0 -2" }} />
-            <span>Escrever artigo</span>
-          </button>
+          <ActionComponent
+            Icon={AddPhotoAlternateIcon}
+            text="Foto"
+            color="#0a66c2"
+          />
+          <ActionComponent
+            Icon={OndemandVideoIcon}
+            text="Video"
+            color="#5F9B41"
+          />
+          <ActionComponent Icon={EventIcon} text="Evento" color="#CA8D32" />
+          <ActionComponent
+            Icon={ArticleIcon}
+            text="Escrever Artigo"
+            color="#E16745"
+          />
         </div>
       </ShareBox>
+
       <div>
         <Article>
           <SharedActor>
@@ -63,14 +84,29 @@ function Main() {
               <MoreHorizIcon />
             </button>
           </SharedActor>
-          <Description>Description</Description>
+          <Description>Descrição</Description>
           <SharedImg>
             <a href="/home">
               <img src="/images/shared-image.jpg" alt="" />
             </a>
           </SharedImg>
+
+          <SocialCounts>
+            <SocialCount />
+          </SocialCounts>
+
+          <SocialActions>
+            <SocialAction Icon={ThumbUpOutlinedIcon} text="Like" />
+            <SocialAction
+              Icon={ChatBubbleOutlineOutlinedIcon}
+              text="Comentar"
+            />
+            <SocialAction Icon={SendIcon} text="Enviar" />
+            <SocialAction Icon={ShareIcon} text="Compartilhar" />
+          </SocialActions>
         </Article>
       </div>
+      <PostModel showModal={showModal} handleClick={handleClick} />
     </Container>
   );
 }

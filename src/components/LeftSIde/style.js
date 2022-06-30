@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import NavListComponent from "../Header/NavList";
 
 export const Container = styled.div`
   display: flex;
@@ -56,7 +57,7 @@ export const UserInfo = styled.div`
 `;
 
 export const CardBackground = styled.div`
-  background: url("/images/card-bg.svg");
+  background: url("/images/background.jpeg");
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   background-position: center;
@@ -67,14 +68,11 @@ export const CardBackground = styled.div`
 
 export const Photo = styled.div`
   box-shadow: none;
-  background-image: url("/images/photo.svg");
+  background-image: url("/images/eu.jpeg");
   width: 72px;
   height: 72px;
-  box-sizing: border-box;
-  background-clip: content-box;
-  background-color: white;
+  background-size: cover;
   background-position: center;
-  background-size: 60%;
   background-repeat: no-repeat;
   border: 2px solid white;
   margin: -38px auto 12px;
@@ -86,10 +84,11 @@ export const Link = styled.div`
   line-height: 1.5;
   color: rgba(0, 0, 0, 0.9);
   font-weight: 600;
+  font-style: none;
 `;
 
-export const AddPhotoText = styled.div`
-  color: #0a66c2;
+export const PhotoText = styled.div`
+  color: rgba(0, 0, 0, 0.6);
   margin-top: 4px;
   font-size: 12px;
   line-height: 1.33;
@@ -177,9 +176,10 @@ export const CommunityCard = styled.div`
       display: flex;
       align-items: center;
       justify-content: space-between;
+      color: #0a66c2;
     }
     &:last-child {
-      color: rgba(0, 0, 0, 0.6);
+      color: rgba(0, 0, 0, 1);
       text-decoration: none;
       border-top: 1px solid #d6cec2;
       padding: 12px;
@@ -187,6 +187,14 @@ export const CommunityCard = styled.div`
 
       &:hover {
         background-color: rgba(0, 0, 0, 0.08);
+      }
+
+      .showMore {
+        display: flex;
+        justify-content: center;
+        color: rgba(0, 0, 0, 0.6);
+        font-size: 14px;
+        font-weight: 600;
       }
     }
   }

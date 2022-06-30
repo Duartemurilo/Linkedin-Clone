@@ -12,8 +12,10 @@ import {
 
 import { useNavigate } from "react-router-dom";
 import { goToHomePage } from "../../Routes/Path.tsx";
+import { connect } from "react-redux";
+import { signInApi } from "../../actions/index";
 
-function Login() {
+function Login(props) {
   const navigate = useNavigate();
 
   return (
@@ -45,4 +47,12 @@ function Login() {
   );
 }
 
-export default Login;
+const mapStateToProps = (state) => {
+  return {};
+};
+
+const mapDispachToProps = (dispatch) => ({
+  signIn: () => dispatch(signInApi()),
+});
+
+export default connect(mapStateToProps, mapDispachToProps)(Login);

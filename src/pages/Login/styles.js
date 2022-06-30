@@ -131,7 +131,7 @@ export const Hero = styled.div`
   }
 `;
 
-export const Form = styled.form`
+export const Form = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;

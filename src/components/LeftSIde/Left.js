@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import {
-  AddPhotoText,
+  PhotoText,
   ArtCard,
   CardBackground,
   CommunityCard,
@@ -22,13 +22,10 @@ function Left(props) {
       <ArtCard>
         <UserInfo>
           <CardBackground />
-          <a href="/home">
-            <Photo />
-            <Link>Bem Vindo!</Link>
-          </a>
-          <a href="/home">
-            <AddPhotoText>Adicione uma foto!</AddPhotoText>
-          </a>
+
+          <Photo />
+          <Link>Murilo Duarte Martins</Link>
+          <PhotoText>Desenvolvedor | Front-end | javascript | React</PhotoText>
         </UserInfo>
         <ShowMore onClick={() => setHide(!hide)}>
           Exibir {!hide ? "menos" : "mais"}
@@ -71,7 +68,7 @@ function Left(props) {
           <span>Hashtags seguidas</span>
         </a>
         <a href="/home">
-          <span>Descubra mais</span>
+          <span className="showMore">Descubra mais</span>
         </a>
       </CommunityCard>
     </Container>

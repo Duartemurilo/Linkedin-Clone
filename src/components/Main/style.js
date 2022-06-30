@@ -28,6 +28,7 @@ export const ShareBox = styled(CommonCard)`
   background: white;
   div {
     button {
+      cursor: pointer;
       outline: none;
       color: rgba(0, 0, 0, 0.6);
       background: transparent;
@@ -128,6 +129,88 @@ export const SharedActor = styled.div`
   }
 `;
 
-export const Description = styled.div``;
+export const Description = styled.div`
+  padding: 0 16px;
+  overflow: hidden;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 14px;
+  text-align: left;
+`;
 
-export const SharedImg = styled.div``;
+export const SharedImg = styled.div`
+  display: block;
+  background-color: #f9fafb;
+  position: relative;
+  width: 100%;
+  margin-top: 8px;
+  img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+  }
+`;
+
+export const SocialCounts = styled.ul`
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+  line-height: 1.3;
+  display: flex;
+  align-items: flex-start;
+  overflow: auto;
+  margin: 0 16px;
+  padding: 8px 0;
+  border-bottom: 1px solid #e9e5df;
+  list-style: none;
+  li {
+    margin-right: 5px;
+    font-size: 12px;
+    a {
+      text-decoration: none;
+    }
+    button,
+    a {
+      display: flex;
+      align-items: center;
+      border: none;
+      background: transparent;
+      font-size: 12px;
+      color: #555555;
+      span {
+        margin-left: 2px;
+      }
+    }
+  }
+`;
+
+export const SocialActions = styled.div`
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0;
+  min-height: 40px;
+  padding: 4px 8px;
+  button {
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    :hover {
+      background-color: #ebebeb;
+    }
+    display: inline-flex;
+    align-items: center;
+    padding: 8px;
+    color: #0a66c2;
+    border: none;
+    background: transparent;
+    span {
+      margin-left: 8px;
+    }
+    @media (max-width: 768px) {
+      span {
+        display: none;
+      }
+    }
+  }
+`;
