@@ -1,5 +1,5 @@
 <p align="center">
- <img widht = '700' alt="Perfil" src = "/src/images/home-logo.svg"/>
+ <img widht = '700' alt="Perfil" src = "/src/Assents/home-logo.svg"/>
 </p>
 
 <h1 align="center">Linkedin clone</h1>
@@ -32,14 +32,14 @@
 <h3>WEB</h3>
 
 <p align="center">
- <img widht = '400'  src = "./src/images/videoWeb.mp4"/>
+ <img widht = '400'  src = "./src/Assents/videoWeb.gif"/>
 </p>
 
 <h1 id = 'Mobile'>🎨 Layout</h1>
 <h3>Mobile</h3>
 
 <p align="center">
- <img widht = '500'  src = "./src/images/videoMobile.mp4"/>
+ <img widht = '500'  src = "./src/Assents/videoMobile.gif"/>
  </p>
 
 <h1>🚀Como executar o projeto</h1>
