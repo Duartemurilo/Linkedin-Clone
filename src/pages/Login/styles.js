@@ -4,6 +4,24 @@ export const Container = styled.div`
   padding: 0;
   height: 90vh;
   overflow-y: hidden;
+  .buttonMobile {
+    display: none;
+  }
+  @media screen and (max-width: 855px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .buttonMobile {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100px;
+      height: 25px;
+    }
+    .hide {
+      display: none;
+    }
+  }
 `;
 
 export const Nav = styled.nav`
@@ -142,6 +160,10 @@ export const Form = styled.div`
   h1 {
     width: 100%;
   }
+  @media screen and (max-width: 855px) {
+    width: 100%;
+    gap: 30vh;
+  }
 `;
 
 export const Jobs = styled.div`
@@ -177,7 +199,6 @@ export const Jobs = styled.div`
     }
   }
   @media screen and (max-width: 855px) {
-    position: absolute;
-    bottom: 0;
+    display: none;
   }
 `;

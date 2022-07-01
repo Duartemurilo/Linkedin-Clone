@@ -26,8 +26,10 @@ function Login(props) {
           <img src="/images/login-logo.svg" alt="" />
         </a>
         <div>
-          <Join>cadastre-se agora</Join>
-          <Signin onClick={() => goToHomePage(navigate)}>Entrar</Signin>
+          <Join className="hide">cadastre-se agora</Join>
+          <Signin className="hide" onClick={() => goToHomePage(navigate)}>
+            Entrar
+          </Signin>
         </div>
       </Nav>
       <Section>
@@ -71,6 +73,9 @@ function Login(props) {
           <img src="/images/hero-banner.svg" alt="" />
         </Hero>
       </Section>
+      <Signin className="buttonMobile" onClick={() => goToHomePage(navigate)}>
+        Entrar
+      </Signin>
     </Container>
   );
 }
