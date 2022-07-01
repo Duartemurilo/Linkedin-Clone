@@ -4,6 +4,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 40%;
+
   @media (max-width: 768px) {
     width: 90%;
   }
@@ -26,6 +27,7 @@ export const ShareBox = styled(CommonCard)`
   color: #958b7b;
   margin: 0 0 8px;
   background: white;
+  min-height: 116px;
   div {
     button {
       cursor: pointer;
@@ -33,6 +35,7 @@ export const ShareBox = styled(CommonCard)`
       color: rgba(0, 0, 0, 0.6);
       background: transparent;
       min-height: 48px;
+      height: 48px;
       line-height: 1.5;
       border: none;
       display: flex;
@@ -45,7 +48,9 @@ export const ShareBox = styled(CommonCard)`
       align-items: center;
       padding: 8px 16px 0px 16px;
       img {
+        object-fit: cover;
         width: 48px;
+        height: 48px;
         border-radius: 50%;
         margin-right: 8px;
       }
@@ -73,6 +78,7 @@ export const Article = styled(CommonCard)`
   padding: 0;
   margin: 0 0 8px;
   overflow: visible;
+  height: auto;
 `;
 
 export const SharedActor = styled.div`
@@ -105,15 +111,15 @@ export const SharedActor = styled.div`
       span {
         text-align: left;
         &:first-child {
-          font-size: 14px;
-          font-weight: 700;
-          color: rgba(0, 0, 0, 1);
-        }
-
-        &:nth-child(n + 1) {
+          color: black;
+          font-weight: bold;
           font-size: 12px;
-          color: rgba(0, 0, 0, 0.6);
         }
+      }
+      .info {
+        font-size: 12px;
+        line-height: 1.5;
+        color: rgba(0, 0, 0, 0.6);
       }
     }
   }
@@ -132,7 +138,7 @@ export const SharedActor = styled.div`
 export const Description = styled.div`
   padding: 0 16px;
   overflow: hidden;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 1);
   font-size: 14px;
   text-align: left;
 `;
@@ -201,7 +207,11 @@ export const SocialActions = styled.div`
     display: inline-flex;
     align-items: center;
     padding: 8px;
-    color: #0a66c2;
+    color: rgba(0, 0, 0, 0.6);
+
+    .active {
+      color: #0a66c2;
+    }
     border: none;
     background: transparent;
     span {

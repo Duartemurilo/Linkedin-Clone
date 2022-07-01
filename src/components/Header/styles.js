@@ -154,6 +154,7 @@ export const User = styled(NavList)`
     width: 24px;
     height: 24px;
     border-radius: 50%;
+    object-fit: cover;
   }
   #arrowIcon {
     width: 12px;

@@ -1,23 +1,9 @@
 import React, { useState } from "react";
-import {
-  AssentsButton,
-  AttachAssents,
-  Container,
-  Content,
-  Editor,
-  Header,
-  PostButton,
-  ShareComment,
-  ShareCreation,
-  SharedContent,
-  UploadImage,
-  UserInfo,
-} from "./style";
-import CloseIcon from "@mui/icons-material/Close";
-import ImageOutlinedIcon from "@mui/icons-material/ImageOutlined";
-import OndemandVideoIcon from "@mui/icons-material/OndemandVideo";
-import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
-import ReactPlayer from "react-player";
+import { Container, Content } from "./style";
+import HeaderComponent from "./Header";
+import ShareContentComponent from "./ShareContentComponent";
+import ShareCreationComponent from "./ShareCreationComponent";
+import { post } from "../../../data/post";
 
 function PostModel({ showModal, handleClick }) {
   const [editorText, setEditorText] = useState("");
@@ -49,90 +35,44 @@ function PostModel({ showModal, handleClick }) {
     setAssetArea("");
     handleClick(e);
   };
+
+  const handlePost = (e) => {
+    post.unshift({
+      name: "Murilo",
+      userImage: "/images/eu.jpeg",
+      description: editorText,
+      src: !!shareImage && URL.createObjectURL(shareImage),
+      info: "Desenvolvedor | Front-end | javascript | React",
+      date: "agora",
+      link: "https://murilo-duarte-portifolio.surge.sh/",
+      like: 0,
+      comments: 0,
+    });
+
+    handleClick(e);
+  };
+
   return (
     <>
       {showModal === "open" && (
         <Container>
           <Content>
-            <Header>
-              <h2>Create a post</h2>
-              <button
-                onClick={(event) => reset(event)}
-                style={{ cursor: "pointer" }}
-              >
-                <CloseIcon style={{ color: "#5E5E5E" }} />
-              </button>
-            </Header>
-            <SharedContent>
-              <UserInfo>
-                <img src="/images/user.svg" alt="" />
-                <span>Murilo</span>
-              </UserInfo>
-
-              <Editor>
-                <textarea
-                  value={editorText}
-                  onChange={(e) => setEditorText(e.target.value)}
-                  placeholder="No que você está pensando"
-                  autoFocus={true}
-                />
-                {assetArea === "image" ? (
-                  <UploadImage>
-                    <input
-                      type="file"
-                      accept="image/gif image/jpeg image/png"
-                      name="image"
-                      id="file"
-                      style={{ display: "none" }}
-                      onChange={handleChange}
-                    />
-                    <p>
-                      <label htmlFor="file" style={{ cursor: "pointer" }}>
-                        Selecione uma umagem para compartilhar
-                      </label>
-                    </p>
-                    {shareImage && (
-                      <img src={URL.createObjectURL(shareImage)} alt="" />
-                    )}
-                  </UploadImage>
-                ) : (
-                  assetArea === "media" && (
-                    <>
-                      <input
-                        className="inputvideo"
-                        type="text"
-                        placeholder="Por favor insira o link do video"
-                        value={videoLink}
-                        onChange={(e) => setVideoLink(e.target.value)}
-                      />
-                      {videoLink && (
-                        <ReactPlayer width={"100%"} url={videoLink} />
-                      )}
-                    </>
-                  )
-                )}
-              </Editor>
-            </SharedContent>
-            <ShareCreation>
-              <AttachAssents>
-                <AssentsButton onClick={() => switchAssetArea("image")}>
-                  <ImageOutlinedIcon style={{ marginRight: 5 }} />
-                </AssentsButton>
-                <AssentsButton onClick={() => switchAssetArea("media")}>
-                  <OndemandVideoIcon style={{ marginRight: 5 }} />
-                </AssentsButton>
-              </AttachAssents>
-
-              <ShareComment>
-                <AssentsButton>
-                  <ChatBubbleOutlineIcon style={{ marginRight: 5 }} />
-                  Qualquer pessoa
-                </AssentsButton>
-              </ShareComment>
-              <PostButton disabled={!editorText ? true : false}>
-                Postar
-              </PostButton>
-            </ShareCreation>
+            <HeaderComponent reset={reset} />
+            <ShareContentComponent
+              editorText={editorText}
+              setEditorText={setEditorText}
+              assetArea={assetArea}
+              handleChange={handleChange}
+              shareImage={shareImage}
+              videoLink={videoLink}
+              setVideoLink={setVideoLink}
+            />
+            <ShareCreationComponent
+              switchAssetArea={switchAssetArea}
+              editorText={editorText}
+              handlePost={handlePost}
+              shareImage={shareImage}
+            />
           </Content>
         </Container>
       )}

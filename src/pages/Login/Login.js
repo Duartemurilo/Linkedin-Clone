@@ -2,7 +2,7 @@ import React from "react";
 import {
   Container,
   Form,
-  Google,
+  Jobs,
   Hero,
   Join,
   Nav,
@@ -14,6 +14,7 @@ import { useNavigate } from "react-router-dom";
 import { goToHomePage } from "../../Routes/Path.tsx";
 import { connect } from "react-redux";
 import { signInApi } from "../../actions/index";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 function Login(props) {
   const navigate = useNavigate();
@@ -32,12 +33,39 @@ function Login(props) {
       <Section>
         <Hero>
           <Form>
-            <h1>Conheça a sua nova comunidade profissional</h1>
+            <h1>
+              Conheça a sua nova
+              <br />
+              comunidade <br />
+              profissional
+            </h1>
 
-            <Google>
-              <img src="/images/google.svg" alt="" />
-              <p> Entre com o Google</p>
-            </Google>
+            <Jobs>
+              <div>
+                <p>
+                  Procurar emprego{" "}
+                  <ArrowForwardIosIcon
+                    style={{ color: "#B2B2B2", fontSize: 18 }}
+                  />
+                </p>
+              </div>
+              <div>
+                <p>
+                  Encontrar pessoas que voçê conhece{" "}
+                  <ArrowForwardIosIcon
+                    style={{ color: "#B2B2B2", fontSize: 18 }}
+                  />
+                </p>
+              </div>
+              <div>
+                <p>
+                  Aprender novas competências{" "}
+                  <ArrowForwardIosIcon
+                    style={{ color: "#B2B2B2", fontSize: 18 }}
+                  />
+                </p>
+              </div>
+            </Jobs>
           </Form>
 
           <img src="/images/hero-banner.svg" alt="" />

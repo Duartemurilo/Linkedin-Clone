@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  height: 70%;
+  height: 240vh;
 
   @media (max-width: 768px) {
     display: none;
@@ -70,6 +70,8 @@ export const Recommendation = styled.a`
 `;
 
 export const BannerCard = styled(FollowCard)`
+  position: sticky;
+  top: 70px;
   img {
     width: 100%;
     height: 100%;

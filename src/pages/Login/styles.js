@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   padding: 0;
-  height: 100%;
+  height: 90vh;
+  overflow-y: hidden;
 `;
 
 export const Nav = styled.nav`
@@ -99,13 +100,15 @@ export const Section = styled.div`
 export const Hero = styled.div`
   width: 100%;
   display: flex;
+
   h1 {
     padding-bottom: 0;
-    width: 50%;
-    font-size: 56px;
+    width: 100px;
+    font-size: 50px;
     color: #2977c9;
     font-weight: 200;
     line-height: 70px;
+    width: 50%;
     @media screen and (max-width: 855px) {
       text-align: center;
       font-size: 22px;
@@ -135,33 +138,43 @@ export const Form = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  align-items: center;
   gap: 3vh;
+  h1 {
+    width: 100%;
+  }
 `;
 
-export const Google = styled.button`
+export const Jobs = styled.div`
+  height: 237px;
+  width: 408px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #fff;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  background-color: rgba(0, 0, 0, 0);
-  color: rgba(0, 0, 0, 0.9);
-  height: 44px;
-  width: 305px;
-  border: 1px solid #c8c8c8;
-  cursor: pointer;
-  border-radius: 20px;
-  gap: 7px;
-  p {
-    margin: 0;
-  }
-  img {
-    height: 25px;
-    width: 25px;
-    margin: 0;
+  flex-direction: column;
+  justify-content: space-between;
+  div {
+    display: flex;
+    justify-content: space-between;
+    max-width: 340px;
+    display: flex;
+    align-items: center;
+    padding-left: 16px;
+    font-size: 16px;
+    font-weight: 600;
+    height: 3px;
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    min-height: 50px;
+    cursor: pointer;
+    :hover {
+      box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 12px 0px;
+    }
+    border-radius: 8px;
+    p {
+      width: 100%;
+      font-weight: 400;
+      display: flex;
+      padding-right: 12px;
+      justify-content: space-between;
+    }
   }
   @media screen and (max-width: 855px) {
     position: absolute;

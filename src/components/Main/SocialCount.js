@@ -1,6 +1,6 @@
 import React from "react";
 
-function SocialCount() {
+function SocialCount({ value, comments }) {
   return (
     <>
       <li>
@@ -9,11 +9,11 @@ function SocialCount() {
           <img src="/images/coracao.svg" alt="" />
           <img src="/images/clap.svg" alt="" />
 
-          <span>75</span>
+          <span>{value}</span>
         </button>
       </li>
       <li>
-        <a href="/home">2 comentarios</a>
+        <a href="/home">{comments} comentarios</a>
       </li>
     </>
   );

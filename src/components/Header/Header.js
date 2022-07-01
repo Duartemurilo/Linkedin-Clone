@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Container,
   Content,
@@ -12,8 +12,11 @@ import {
 } from "./styles";
 
 import NavListComponent from "./NavList";
+import myContext from "../../context/AppContext";
 
 function Header() {
+  const { urlUser } = useContext(myContext);
+
   return (
     <Container>
       <Content>
@@ -49,7 +52,14 @@ function Header() {
 
             <User>
               <a href="/home">
-                <img src="/images/user.svg" alt="" />
+                <img
+                  src={
+                    !!urlUser
+                      ? URL.createObjectURL(urlUser)
+                      : "/images/user.svg"
+                  }
+                  alt=""
+                />
                 <img id="arrowIcon" src="/images/down-icon.svg" alt="" />
               </a>
             </User>
