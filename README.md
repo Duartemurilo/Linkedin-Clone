@@ -13,7 +13,7 @@
 
 <h1>💻  Sobre o projeto</h1>
 
-<p> Projeto que tem o objetivo de clonar o app de smartphone do ifood com a proposta de desenvolver habilidades técnicas como manipulação de APIs, armazenamento de dados da localStorage, hooks e muito mais…</p>
+<p> Projeto que tem o objetivo de clonar a maior rede profissional do mundo.</p>
 
 <h1 id = 'tec'>🛠 Tecnologias </h1
   
