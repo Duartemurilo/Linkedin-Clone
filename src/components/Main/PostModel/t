@@ -1,0 +1,12 @@
+  const handlePost = (e) => {
+    post.unshift({
+      name: "Murilo",
+      userImage: "/images/eu.jpeg",
+      description: editorText,
+      src: !!shareImage && URL.createObjectURL(shareImage),
+      info: "Desenvolvedor | Front-end | javascript | React",
+      date: "agora",
+      link: "https://murilo-duarte-portifolio.surge.sh/",
+      like: 0,
+      comments: 0,
+    });

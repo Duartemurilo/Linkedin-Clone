@@ -1,7 +1,5 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useState } from "react";
-import myContext from "../../context/AppContext";
-
 import {
   PhotoText,
   ArtCard,
@@ -18,51 +16,17 @@ import {
 
 function Left(props) {
   const [hide, setHide] = useState(true);
-  const { urlUser, setUrlUser } = useContext(myContext);
 
-  const handleChange = (e) => {
-    const image = e.target.files[0];
-
-    if (image === "" || image === undefined) {
-      alert(`not a image, the file is a${typeof image}`);
-      return;
-    }
-
-    setUrlUser(image);
-  };
-
-  console.log(urlUser);
   return (
     <Container>
       <ArtCard>
         <UserInfo>
           <CardBackground />
 
-          {!urlUser ? (
-            <Photo>
-              <img src="/images/user.svg" alt="" />
-              <input
-                type="file"
-                accept="image/gif image/jpeg image/png"
-                name="image"
-                id="file"
-                onChange={handleChange}
-              />
-            </Photo>
-          ) : (
-            <Photo>
-              <img src={URL.createObjectURL(urlUser)} alt="" />
-              <input
-                type="file"
-                accept="image/gif image/jpeg image/png"
-                name="image"
-                id="file"
-                onChange={handleChange}
-              />
-            </Photo>
-          )}
-
-          <Link>Bem vindo!</Link>
+          <Photo>
+            <img src="/images/user.svg" alt="" />
+          </Photo>
+          <Link>Murilo Duarte Martins</Link>
           <PhotoText>Desenvolvedor | Front-end | javascript | React</PhotoText>
         </UserInfo>
         <ShowMore onClick={() => setHide(!hide)}>
